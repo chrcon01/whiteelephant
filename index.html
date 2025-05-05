@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="main-container">
   <!-- navigation bar -->
 <header>
 <nav class="navbar">
@@ -22,39 +23,79 @@
 
 <!-- hero -->
 <div id="logo">
-  <img src="logo.png" alt="white elephant logo">
+  <img src="logo_2.png" alt="white elephant logo">
 </div>
 
-<!-- produktioner -->
+<!-- indhold -->
 <h2 class="h2_frontpage">FICTION</h2>
-<div class="grid-row">
-  <div class="gif-hover-container">
-    <img src="EXPORT TO GIF KASSEN 1.gif" alt="The box shortfilm gif" class="gif-image">
-    <img src="kassen_placeholder.png" alt="The box shortfilm" class="static-image">
+  <div class="grid-row">
+    <!-- 1. billede/gif/video -->
+        <div class="media-mix">
+          <img src="kassen_placeholder.png" alt="kassen - the box" class="static-image">
+               <div class="text_overlay">KASSEN<br>ENG (THE BOX)<br>SHORT FILM - 19 MIN</div>
+          <img src="EXPORT TO GIF KASSEN 1.gif" alt="The box shortfilm gif"
+          class="gif-image" tabindex="0" data-vimeo="https://player.vimeo.com/video/1071899444?h=aa8ac4676e">
+        </div>
+  
+    <!-- 2. billede/gif/video -->
+        <div class="media-mix">
+          <img src="hav_placeholder.png" alt="hav - the sea" class="static-image">
+              <div class="text_overlay">HAV<br>ENG (THE SEA)<br>SHORT FILM - 12 MIN</div>
+          <img src="EXPORT TO GIF HAV.gif" alt="The sea shortfilm gif"
+          class="gif-image" tabindex="0" data-vimeo="https://player.vimeo.com/video/1071899444?h=aa8ac4676e">
+        </div>
+  
+    <!-- 3. billede/gif/video -->
+        <div class="media-mix">
+          <img src="time_placeholder.png" alt="time - time" class="static-image">
+            <div class="text_overlay">TIME<br>ENG (TIME)<br>SHORT FILM - 8 MIN</div>
+          <img src="EXPORT TO GIF TIME.gif" alt="Time shortfilm gif"
+          class="gif-image" tabindex="0" data-vimeo="https://player.vimeo.com/video/1071899444?h=aa8ac4676e">
+        </div>
   </div>
-  <div class="gif-hover-container">
-    <img src="EXPORT TO GIF HAV 1-2.gif" alt="The sea shortfilm gif" class="gif-image">
-    <img src="hav_plaveholder.png" alt="The sea shortfilm" class="static-image">
-  </div>
-  <div class="gif-hover-container">
-    <img src="EXPORT TO GIF TIME 1.gif" alt="Time shortfilm gif" class="gif-image">
-    <img src="time_placeholder.png" alt="Time shortfilm" class="static-image">
-  </div>
-</div>
+  
 
+
+ <!-- indhold music -->
 <h2 class="h2_frontpage">MUSIC</h2>
 <div class="grid-row">
-  <div class="gif-hover-container">
-    <img src="EXPORT TO GIF KASSEN 1.gif" alt="The box shortfilm gif" class="gif-image">
-    <img src="kassen_placeholder.png" alt="The box shortfilm" class="static-image">
-  </div>
-  <div class="gif-hover-container">
-    <img src="EXPORT TO GIF HAV 1-2.gif" alt="The sea shortfilm gif" class="gif-image">
-    <img src="hav_plaveholder.png" alt="The sea shortfilm" class="static-image">
-  </div>
-  <div class="gif-hover-container">
-    <img src="EXPORT TO GIF TIME 1.gif" alt="Time shortfilm gif" class="gif-image">
-    <img src="time_placeholder.png" alt="Time shortfilm" class="static-image">
+  <!-- 4. billede/gif/video -->
+      <div class="media-mix">
+        <img src="kassen_placeholder.png" alt="kassen - the box" class="static-image">
+             <div class="text_overlay">KASSEN<br>ENG (THE BOX)<br>SHORT FILM - 19 MIN</div>
+        <img src="EXPORT TO GIF KASSEN 1.gif" alt="The box shortfilm gif"
+        class="gif-image" tabindex="0" data-vimeo="https://player.vimeo.com/video/1071899444?h=aa8ac4676e">
+      </div>
+
+  <!-- 5. billede/gif/video -->
+      <div class="media-mix">
+        <img src="hav_placeholder.png" alt="hav - the sea" class="static-image">
+            <div class="text_overlay">HAV<br>ENG (THE SEA)<br>SHORT FILM - 12 MIN</div>
+        <img src="EXPORT TO GIF HAV.gif" alt="The sea shortfilm gif"
+        class="gif-image" tabindex="0" data-vimeo="https://player.vimeo.com/video/1071899444?h=aa8ac4676e">
+      </div>
+
+  <!-- 6. billede/gif/video -->
+      <div class="media-mix">
+        <img src="time_placeholder.png" alt="time - time" class="static-image">
+          <div class="text_overlay">TIME<br>ENG (TIME)<br>SHORT FILM - 8 MIN</div>
+        <img src="EXPORT TO GIF TIME.gif" alt="Time shortfilm gif"
+        class="gif-image" tabindex="0" data-vimeo="https://player.vimeo.com/video/1071899444?h=aa8ac4676e">
+      </div>
+</div>
+
+<!-- video -->
+<div id="videopopup" class="popup">
+  <div class="popup-content">
+    <span class="close">&times;</span>
+    <iframe
+      src=""
+      width="640" height="360"
+      frameborder="0"
+      allow="autoplay; fullscreen; picture-in-picture"
+      allowfullscreen
+      title="Vimeo video">
+    </iframe>
   </div>
 </div>
 
@@ -63,7 +104,7 @@
   <hr class="footer-line">
   <div class="footer-content">
     <div class="footer-logo">
-      <img src="logo.png" alt="White Elephant logo">
+      <img src="logo_2.png" alt="White Elephant logo">
     </div>
     <div class="footer-contact">
       <div class="footer-email">info@whiteelephant.com</div>
@@ -95,6 +136,8 @@
   </ul>
 </section>
 </footer>
+</div>
 
+<script src="script.js"></script>
 </body>
 </html>

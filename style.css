@@ -1,21 +1,36 @@
 
 :root {
-    --background-color: #000;
-    --text-color: #fff;
-    --accent-color: #F17821;
-    --line-thickness: 3px;
-    --line-margin: 40px;
-    --grid-gap: 32px;
-  }
+  --background-color: #000;
+  --text-color: #fff;
+  --accent-color: #8CA9AD;
+  --line-thickness: 3px;
+  --line-margin: 40px;
+  --grid-gap: 32px;
+  --max-content-width: auto;  
+  --footer-logo-width: 120px;   
+  --modal-bg: #111;             
+  --modal-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  --border-radius: 8px;
+  --transition-speed: 0.2s;
+}
+
+/* indhold */
   
   body {
     background-color: var(--background-color);
     color: var(--text-color);
     font-family: 'Poppins', sans-serif;
-    margin: 0;
     min-height: 100vh;
   }
   
+  .main-container {
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    padding-left: var(--line-margin);
+    padding-right: var(--line-margin);
+  }
+  
+
   .navbar {
     display: flex;
     justify-content: flex-end;
@@ -61,7 +76,7 @@
   
   .h2_frontpage {
     text-align: left;
-    margin: 2rem var(--line-margin) 1rem var(--line-margin);
+    margin: 0 var(--line-margin) 1rem var(--line-margin);
     font-size: 2rem;
     letter-spacing: 3px;
     position: relative;
@@ -72,39 +87,104 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--grid-gap);
-    max-width: var(--max-content-width);
-    margin: 0 auto 2rem auto;
-    padding: 0 var(--line-margin);
+    margin: 0 var(--line-margin);
   }
   
-  .gif-hover-container {
+  .media-mix {
     position: relative;
     width: 100%;
-    aspect-ratio: 16/9; 
-    overflow: hidden;
+    max-width: 400px;
+    cursor: pointer;
+    display: inline-block;
   }
   
-  .gif-image,
-  .static-image {
-    width: 452px;
-    height: auto;
+    /* photo */
+  .media-mix .static-image {
+    width: 100%;
     display: block;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
+    border-radius: var(--border-radius);
+    transition: opacity var(--transition-speed);
   }
-  
-  .static-image {
-    z-index: 2;
+
+  /* tekst på photo */
+  .media-mix .text_overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color:  var(--text-color);
+    padding: 1em 1.5em;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: 600;
+    pointer-events: none;
+    letter-spacing: 1px;
     transition: opacity 0.2s;
   }
   
-  .gif-hover-container:hover .static-image {
+  /* gif */
+  .media-mix .gif-image {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-speed);
+  }
+  
+  /* photo hover: skjul billede og tekst, vis gif */
+  .media-mix:hover .static-image,
+  .media-mix:focus .static-image,
+  .media-mix:hover .text_overlay,
+  .media-mix:focus .text_overlay {
     opacity: 0;
   }
-
-
+  
+  .media-mix:hover .gif-image,
+  .media-mix:focus .gif-image {
+    opacity: 1;
+    pointer-events: auto;
+    cursor: pointer;
+  }
+  
+  /* Modal styling */
+  .popup {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    overflow: auto;
+    background: rgba(0,0,0,0.7);
+  }
+  
+  .popup-content {
+    background: var(--modal-bg);
+    margin: 5% auto;
+    padding: 0;
+    border-radius: var(--border-radius);
+    max-width: 600px;
+    position: relative;
+    box-shadow: var(--modal-shadow);
+  }  
+  
+  .close {
+    color: var(--text-color);
+    position: absolute;
+    top: 10px; right: 18px;
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+  }
+  
+  .close:hover { color: var(--accent-color); }
+  
+  
   /* Main footer content area */
   .footer-line {
     height: var(--line-thickness);
@@ -122,14 +202,14 @@
     padding: 0 var(--line-margin);
   }
   
-  /* Logo on the far left */
+  /* logo footer */
   .footer-logo img {
-    max-width: 120px;
+    max-width: var(--footer-logo-width);
     height: auto;
     display: block;
   }
   
-  /* Main contact information */
+  /* contact information */
   .footer-contact {
     display: flex;
     flex-direction: column;
@@ -151,7 +231,7 @@
     color: #aaa;
   }
   
-  /* Right column: social media icons */
+  /* social media icons */
   .footer-social {
     display: flex;
     align-items: flex-start;
