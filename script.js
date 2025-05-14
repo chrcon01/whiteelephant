@@ -36,6 +36,18 @@ document.querySelectorAll('.media-mix .gif-image').forEach(function(gif) {
       iframe.src = "";
     }
   };
+
+
+    const correctPassword = "whiteelephantpictures";
+    document.getElementById("login-form").onsubmit = function(e) {
+      e.preventDefault();
+      if (document.getElementById("password").value === correctPassword) {
+        document.getElementById("protected-content").style.display = "block";
+        document.getElementById("login-form").style.display = "none";
+      } else {
+        alert("Incorrect password!");
+      }
+    }
   
   
 
