@@ -46,7 +46,7 @@
   }
   
   #logo img {
-    max-width: 120px; 
+    width: 160px; 
     height: auto;
     display: block;
   }
@@ -80,8 +80,7 @@
   }
   
   /* content */
-  
-  .h2_frontpage {
+  .h1 {
     text-align: left;
     margin: 0 var(--line-margin);
     margin-top: 2rem;
@@ -176,7 +175,7 @@
     cursor: pointer;
   }
   
-  /* Modal styling */
+  /* popup */
   .popup {
     display: none;
     position: fixed;
@@ -210,7 +209,7 @@
   .close:hover { color: var(--accent-color); }
   
 
-  /* about page */
+  /* ABOUT */
   .profile-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -278,9 +277,132 @@
   white-space: normal;
 }
 
+ /* NEWS */
+  .h2 {
+    text-align: center;
+    margin: 0 var(--line-margin);
+    margin-top: 5rem;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    letter-spacing: 3px;
+    position: relative;
+  }
 
+/* insta content */
+ .main-container-insta {
+  max-width: var(--max-content-width); 
+  margin: 0 auto;
+  padding-left: var(--line-margin);
+  padding-right: var(--line-margin);
+  box-sizing: border-box;
+}
 
-  
+.insta-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 0.5rem;
+  justify-items: start;
+  align-items: start;
+}
+
+.instagram-media {
+  width: 100% !important;
+  max-width: 380px  !important;
+  min-width: 220px  !important;
+  margin: 0  !important;
+}
+
+/* new & upcoming */
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+}
+
+.column-photo {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+}
+
+.column-title {
+  margin: 0;
+}
+
+.column-intro {
+  color: var (--text-color);
+  font-size: 1rem;
+  margin-top: 0;
+}
+
+/* PITCHES */
+#login-form {
+  max-width: 350px;
+  margin: 10rem auto 10rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+#login-form input[type="password"] {
+  padding: 0.75rem 1rem;
+  border: 1.5px solid var(--accent-color, #ffa500);
+  border-radius: 6px;
+  font-size: 1rem;
+  background: #f8f8f8;
+  color: (#000, #222);
+  transition: border-color 0.2s;
+
+}
+
+#login-form input[type="password"]:focus {
+  border-color: var(--accent-color, #ffa500);
+  outline: none;
+  background: #fff;
+}
+
+#login-form button[type="submit"] {
+  background: var(--accent-color, #ffa500);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.75rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+#login-form button[type="submit"]:hover {
+  background: #ffa500;
+}
+
+#protected-content {
+  display: none; 
+  text-align: center;
+  margin-top: 2rem;
+}
+
+#protected-content a {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  background: var(--accent-color, #ffa500);
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+#protected-content a:hover {
+  background: #ffa500;
+}
+
   /* footer */
   .footer-line {
     height: var(--line-thickness);
@@ -356,15 +478,15 @@
   }
 
 /* .................... responsive design .................... */
-  
-  /* tablet */
+
+/* tablet */
   @media (max-width: 900px) {
     .grid-row {
       grid-template-columns: 1fr 1fr;
     }
   }
   
-    /* mobile */
+/* mobile */
   @media (max-width: 600px) {
     .navbar {
       flex-direction: column;
@@ -380,7 +502,20 @@
       margin-right: 1rem;
     }
 
-     /* footer */
+/* NEWS */
+
+@media (max-width: 900px) {
+  .insta-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .insta-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* footer */
     .footer-content {
       flex-direction: column;
       align-items: center;
@@ -399,4 +534,7 @@
       justify-content: center;
     }
   }  
+
+
+
   
