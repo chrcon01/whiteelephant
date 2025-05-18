@@ -78,7 +78,18 @@
     margin: 0 var(--line-margin);
     border: none;
   }
-  
+   
+  /* hero */
+.hero-video {
+  display: block;
+  width: calc(100% - 2 * var(--line-margin)); /* Subtract left and right margins */
+  margin: 0 var(--line-margin);               /* Same horizontal margins as lines */
+  height: auto;
+  object-fit: cover;                          /* Optional: ensures video covers area */
+  border-radius: 0;                           /* Optional: matches straight lines */
+}
+
+
   /* content */
   .h1 {
     text-align: left;
@@ -277,16 +288,26 @@
   white-space: normal;
 }
 
- /* NEWS */
-  .h2 {
-    text-align: center;
+ /* NEWS */ /* headline + insta */
+ .news-insta {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between; 
+  margin-top: 2rem;
+}
+
+#h1 {
+    text-align: left;
     margin: 0 var(--line-margin);
-    margin-top: 5rem;
-    margin-bottom: 1rem;
-    font-size: 2rem;
+    font-size: 3rem;
     letter-spacing: 3px;
     position: relative;
   }
+
+.elfsight-app-bfa59890-b189-427b-8102-d006335580b4 {
+  width: 100%;
+  margin-right: 2rem;
+}
 
 /* insta content */
  .main-container-insta {
@@ -295,6 +316,7 @@
   padding-left: var(--line-margin);
   padding-right: var(--line-margin);
   box-sizing: border-box;
+  display: none;
 }
 
 .insta-grid {
@@ -303,6 +325,7 @@
   gap: 0.5rem;
   justify-items: start;
   align-items: start;
+  display: none;
 }
 
 .instagram-media {
@@ -310,13 +333,24 @@
   max-width: 380px  !important;
   min-width: 220px  !important;
   margin: 0  !important;
+  display: none;
 }
 
 /* new & upcoming */
+  .h2 {
+    text-align: left;
+    margin: 0 var(--line-margin);
+    margin-top: 5rem;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    letter-spacing: 3px;
+    position: relative;
+  }
+
 .column {
   display: flex;
   flex-direction: column;
-  align-items: center;  
+  align-items: start;  
 }
 
 .column-photo {
