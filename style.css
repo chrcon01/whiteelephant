@@ -351,20 +351,47 @@
   margin: 0 1rem 0 1rem;
 }
 
- /* NEWS */ /* headline + insta */
- .news-insta {
+ /* NEWS */ 
+
+.news-row {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between; 
-  margin-top: 2rem;
+  flex-direction: row;
+  align-items: flex-start; 
+  gap: 2rem; 
+  margin: 0 var(--line-margin);  
+  margin-bottom: 4rem;           
 }
 
-.elfsight-app-bfa59890-b189-427b-8102-d006335580b4 {
+.news-text {
+  flex: 2;       
+  text-align: left;
+  font-size: 1.2rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.news-image {
+  flex: 1;         
+  display: flex;
+  justify-content: flex-end;
+}
+
+.column-photo {
   width: 100%;
-  margin-right: 2rem;
+  max-width: 350px;
+  height: auto;
+  display: block;
 }
 
-/* insta content */
+/* instagram */
+.elfsight-app-bfa59890-b189-427b-8102-d006335580b4 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+/* insta content VISES IKKE!!!!! */
  .main-container-insta {
   max-width: var(--max-content-width); 
   margin: 0 auto;
@@ -389,30 +416,6 @@
   min-width: 220px  !important;
   margin: 0  !important;
   display: none;
-}
-
-/* new & upcoming */
-
-.column {
-  display: flex;
-  flex-direction: column;
-  align-items: start;  
-}
-
-.column-photo {
-  width: 100%;
-  max-width: 250px;
-  height: auto;
-}
-
-.column-title {
-  margin: 0;
-}
-
-.column-intro {
-  color: var (--text-color);
-  font-size: 1rem;
-  margin-top: 0;
 }
 
 /* PITCHES */
@@ -470,7 +473,7 @@
 #protected-content a {
   display: inline-block;
   padding: 0.75rem 2rem;
-  background: var(--accent-color, #ffa500);
+  background: var(--background-color);
   color: #fff;
   border-radius: 6px;
   text-decoration: none;
@@ -480,7 +483,7 @@
 }
 
 #protected-content a:hover {
-  background: #ffa500;
+  background: var(--accent-color);
 }
 
   /* footer */
@@ -583,6 +586,16 @@
     }
 
 /* NEWS */
+@media (max-width: 700px) {
+  .news-row {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .news-image {
+    justify-content: flex-start;
+  }
+}
+
 
 @media (max-width: 900px) {
   .insta-grid {
