@@ -29,15 +29,31 @@
     <hr class="header-line">
 </header>
 
-<!-- login-form -->
-<form id="login-form">
-    <input type="password" id="password" placeholder="Enter password">
-    <button type="submit">Submit</button>
-</form>
+<!-- login -->
+<div class="password-container" id="passwordContainer">
+  <h2 id="h2-pitches">ENTER PASSWORD</h2>
+  <input type="password" id="passwordInput" placeholder="Password">
+  <button id="passwordBtn" type="button">LOGIN</button>
+  <div class="error-message" id="errorMessage"></div>
+</div>
 
-<!-- embedded video -->
-<div id="protected-content">
-<a href="protected-video-page.html">Go to video</a>
+<div class="gallery" id="gallery" style="display:none;">
+  <img src="1.jpg" alt="Billede 1">
+  <img src="2.jpg" alt="Billede 2">
+  <img src="3.jpg" alt="Billede 3">
+</div>
+
+<!-- carusel -->
+<div class="modal" id="modal">
+  <div class="carousel" id="carousel">
+    <button class="close-btn" id="closeModal">&times;</button>
+    <img src="" alt="Karusel billede" id="carouselImg">
+    <div class="carousel-controls">
+      <button id="prevBtn">&#8592; Forrige</button>
+      <button id="nextBtn">Næste &#8594;</button>
+    </div>
+    <div id="carouselCounter"></div>
+  </div>
 </div>
 
 <!-- footer -->
@@ -65,9 +81,114 @@
       </a>
     </li>
   </ul>
-</footer>
+  </div>
 </div>
+</footer>
 
- <script src="script.js"></script>
+<script>
+const CORRECT_PASSWORD = "whiteelephantpictures";
+  const passwordBtn = document.getElementById('passwordBtn');
+  const passwordInput = document.getElementById('passwordInput');
+  const errorMessage = document.getElementById('errorMessage');
+  const passwordContainer = document.getElementById('passwordContainer');
+  const gallery = document.getElementById('gallery');
+
+  passwordBtn.addEventListener('click', checkPassword);
+  passwordInput.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') checkPassword();
+  });
+
+  function checkPassword() {
+    if (passwordInput.value === CORRECT_PASSWORD) {
+      passwordContainer.style.display = 'none';
+      gallery.style.display = 'block';
+      errorMessage.textContent = '';
+    } else {
+      errorMessage.textContent = 'Forkert adgangskode!';
+      passwordInput.value = '';
+      passwordInput.focus();
+    }
+  }
+
+  // --- Karusel-funktionalitet ---
+// Definér billeder for hvert galleri-billede
+const galleries = [
+  // Billeder for billede 1
+  ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg", "8.jpg", "9.jpg", "10.jpg", "11.jpg", "13.jpg", "14.jpg", "15.jpg"],
+  // Billeder for billede 2
+  ["2a.jpg", "2b.jpg", "2c.jpg"], // Ret til dine billeder
+  // Billeder for billede 3
+  ["3a.jpg", "3b.jpg", "3c.jpg"]  // Ret til dine billeder
+];
+
+const galleryImages = document.querySelectorAll('#gallery img');
+const modal = document.getElementById('modal');
+const carouselImg = document.getElementById('carouselImg');
+const closeModalBtn = document.getElementById('closeModal');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const carouselCounter = document.getElementById('carouselCounter');
+
+let currentGallery = 0;
+let currentIndex = 0;
+
+// Åbn karusellen med det rigtige billedsæt
+galleryImages.forEach((img, idx) => {
+  img.addEventListener('click', function() {
+    currentGallery = idx;
+    currentIndex = 0;
+    showCarouselImage();
+    modal.classList.add('active');
+  });
+});
+
+function showCarouselImage() {
+  const images = galleries[currentGallery];
+  carouselImg.src = images[currentIndex];
+  carouselCounter.textContent = `Billede ${currentIndex + 1} af ${images.length}`;
+}
+
+prevBtn.addEventListener('click', function() {
+  const images = galleries[currentGallery];
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  showCarouselImage();
+});
+
+nextBtn.addEventListener('click', function() {
+  const images = galleries[currentGallery];
+  currentIndex = (currentIndex + 1) % images.length;
+  showCarouselImage();
+});
+
+closeModalBtn.addEventListener('click', function() {
+  modal.classList.remove('active');
+  carouselImg.src = '';
+});
+
+modal.addEventListener('click', function(e) {
+  if (e.target === modal) {
+    modal.classList.remove('active');
+    carouselImg.src = '';
+  }
+});
+
+document.addEventListener('keydown', function(e) {
+  if (modal.classList.contains('active')) {
+    if (e.key === "Escape") {
+      modal.classList.remove('active');
+      carouselImg.src = '';
+    }
+    if (e.key === "ArrowLeft") {
+      const images = galleries[currentGallery];
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      showCarouselImage();
+    }
+    if (e.key === "ArrowRight") {
+      const images = galleries[currentGallery];
+      currentIndex = (currentIndex + 1) % images.length;
+      showCarouselImage();
+    }
+  }
+});</script>
 </body>
 </html>
