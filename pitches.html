@@ -31,16 +31,18 @@
 
 <!-- login -->
 <div class="password-container" id="passwordContainer">
-  <h2 id="h2-pitches">ENTER PASSWORD</h2>
-  <input type="password" id="passwordInput" placeholder="Password">
-  <button id="passwordBtn" type="button">LOGIN</button>
+  <h2 id="h2-pitches">Enter Password</h2>
+  <div class="password-row">
+    <input type="password" id="passwordInput" placeholder="Password">
+    <button id="passwordBtn" type="button">Login</button>
+  </div>
   <div class="error-message" id="errorMessage"></div>
 </div>
 
-<div class="gallery" id="gallery" style="display:none;">
-  <img src="1.jpg" alt="Billede 1">
-  <img src="2.jpg" alt="Billede 2">
-  <img src="3.jpg" alt="Billede 3">
+<div class="grid-row" id="gallery" style="display:none;">
+  <img src="1.jpg" alt="photo 1">
+  <img src="1_mt.jpg" alt="photo 2">
+  <img src="1_king.jpg" alt="photo 3">
 </div>
 
 <!-- carusel -->
@@ -49,8 +51,8 @@
     <button class="close-btn" id="closeModal">&times;</button>
     <img src="" alt="Karusel billede" id="carouselImg">
     <div class="carousel-controls">
-      <button id="prevBtn">&#8592; Forrige</button>
-      <button id="nextBtn">Næste &#8594;</button>
+      <button id="prevBtn">&#8592; Previous</button>
+      <button id="nextBtn">Next &#8594;</button>
     </div>
     <div id="carouselCounter"></div>
   </div>
@@ -101,7 +103,7 @@ const CORRECT_PASSWORD = "whiteelephantpictures";
   function checkPassword() {
     if (passwordInput.value === CORRECT_PASSWORD) {
       passwordContainer.style.display = 'none';
-      gallery.style.display = 'block';
+      gallery.style.display = 'grid';
       errorMessage.textContent = '';
     } else {
       errorMessage.textContent = 'Forkert adgangskode!';
@@ -110,18 +112,16 @@ const CORRECT_PASSWORD = "whiteelephantpictures";
     }
   }
 
-  // --- Karusel-funktionalitet ---
-// Definér billeder for hvert galleri-billede
+  //carousel
 const galleries = [
-  // Billeder for billede 1
   ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg", "8.jpg", "9.jpg", "10.jpg", "11.jpg", "13.jpg", "14.jpg", "15.jpg"],
-  // Billeder for billede 2
-  ["2a.jpg", "2b.jpg", "2c.jpg"], // Ret til dine billeder
-  // Billeder for billede 3
-  ["3a.jpg", "3b.jpg", "3c.jpg"]  // Ret til dine billeder
+
+  ["1_mt.jpg", "2_mt.jpg", "3_mt.jpg", "4_mt.jpg", "5_mt.jpg", "6_mt.jpg", "7_mt.jpg", "8_mt.jpg", "9_mt.jpg"],
+
+  ["1_king.jpg", "2_king.jpg", "3_king.jpg", "4_king.jpg", "5_king.jpg", "6_king.jpg", "7_king.jpg", "8_king.jpg", "9_king.jpg", "10_king.jpg", "11_king.jpg", "12_king.jpg", "13_king.jpg"],
 ];
 
-const galleryImages = document.querySelectorAll('#gallery img');
+const galleryImages = document.querySelectorAll('.grid-row img');
 const modal = document.getElementById('modal');
 const carouselImg = document.getElementById('carouselImg');
 const closeModalBtn = document.getElementById('closeModal');
@@ -189,6 +189,7 @@ document.addEventListener('keydown', function(e) {
       showCarouselImage();
     }
   }
-});</script>
+});
+</script>
 </body>
 </html>
