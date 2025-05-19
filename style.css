@@ -36,7 +36,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 70px;
+    height: 90px;
   }
 
   #logo {
@@ -46,7 +46,7 @@
   }
   
   #logo img {
-    width: 160px; 
+    width: 200px; 
     height: auto;
     display: block;
   }
@@ -72,23 +72,22 @@
     color: var(--accent-color);
   }
   
-  .header-line {
-    height: var(--line-thickness);
-    background: var(--accent-color);
-    margin: 0 var(--line-margin);
-    border: none;
-  }
-   
+.header-line {
+  height: var(--line-thickness);
+  background: var(--accent-color);
+  margin: 0 var(--line-margin);
+  border: none;
+}
+ 
   /* hero */
 .hero-video {
   display: block;
-  height: auto; 
-  width: 800px; 
-  margin: 1rem;   
-  display: flex;
-  justify-content: center;                                                   
-}
-
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+  height: auto;
+}                                              
 
   /* content */
   .h1 {
@@ -96,6 +95,7 @@
     margin: 0 var(--line-margin);
     margin-top: 2rem;
     font-size: 3rem;
+    font-weight: 700;
     letter-spacing: 3px;
     position: relative;
   }
@@ -104,6 +104,17 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     margin: 0 var(--line-margin);
+  }
+
+  .h2 {
+    text-align: left;
+    margin: 0 var(--line-margin);
+    margin-top: 5rem;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    position: relative;
   }
   
   .media-mix {
@@ -219,14 +230,26 @@
   
   .close:hover { color: var(--accent-color); }
   
-
   /* ABOUT */
+  .text-container {
+  background-image: url('hav-filter.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  margin: 0 var(--line-margin);
+  margin-top: 1rem;
+  padding-top: 2rem; 
+  padding-bottom: 5rem;
+}
+
  .h2-about {
     text-align: left;
+    color: var(--accent-color);
     margin: 0 var(--line-margin);
     margin-top: 2rem;
     margin-bottom: 0.5rem;
     font-size: 2rem;
+    font-weight: 600;
     letter-spacing: 3px;
     position: relative;
   }
@@ -235,9 +258,11 @@
     text-align: left;
     margin: 0 var(--line-margin);
     font-size: 1.2rem;
+    font-weight: 300;
     letter-spacing: 1px;
     position: relative;
   }
+
   .profile-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -292,17 +317,37 @@
   pointer-events: none;
 }
 
-.overlay-text {
+.overlay-text-h3 {
   position: absolute;
-  top: 12px;      
-  left: 16px; 
+  top: 20%;
+  left: 1rem;   
   z-index: 2;
   color: var(--text-color, #fff);
   font-weight: 500;
   font-size: 1.5em;
   letter-spacing: 1.2px;
-  padding-bottom: 0.5em;
-  white-space: normal;
+  margin: 0 1rem 0 1rem;
+}
+
+.overlay-text-p {
+  top: calc(20% + 1.5em + 0rem);
+  color:var( --accent-color);
+   }
+
+.overlay-text-p1 {
+  top: calc(20% + 2.6em + 2rem);
+  color: var(--text-color, #fff);
+}
+
+.overlay-text-p, .overlay-text-p1 {
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  z-index: 2;
+  font-weight: 500;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  margin: 0 1rem 0 1rem;
 }
 
  /* NEWS */ /* headline + insta */
@@ -312,14 +357,6 @@
   justify-content: space-between; 
   margin-top: 2rem;
 }
-
-#h1 {
-    text-align: left;
-    margin: 0 var(--line-margin);
-    font-size: 3rem;
-    letter-spacing: 3px;
-    position: relative;
-  }
 
 .elfsight-app-bfa59890-b189-427b-8102-d006335580b4 {
   width: 100%;
@@ -354,15 +391,6 @@
 }
 
 /* new & upcoming */
-  .h2 {
-    text-align: left;
-    margin: 0 var(--line-margin);
-    margin-top: 5rem;
-    margin-bottom: 1rem;
-    font-size: 2rem;
-    letter-spacing: 3px;
-    position: relative;
-  }
 
 .column {
   display: flex;
