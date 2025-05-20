@@ -66,3 +66,4 @@ document.querySelectorAll('.media-mix .gif-image').forEach(function(gif) {
     }
   };
 
+
