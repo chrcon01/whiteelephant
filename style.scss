@@ -24,7 +24,7 @@ body {
   padding-right: $line-margin;
 }
 
-// === NAVIGATION ===
+// NAVIGATION
 .navbar-container {
   max-width: $max-content-width;
   margin: 0 auto;
@@ -74,7 +74,7 @@ body {
   border: none;
 }
 
-// === HERO ===
+//  HERO 
 .hero-video {
   display: block;
   width: 50rem;
@@ -82,18 +82,20 @@ body {
   height: auto;
 }
 
-// === CONTENT ===
+// CONTENT 
 .grid-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   margin: 0;
   width: 100%;
   gap: 0;
+column-gap: 0;
+
 
   img {
     position: relative;
     width: 100%;
-    max-width: 28.125rem;
+    max-width: auto;
     cursor: pointer;
     display: inline-block;
     transition: transform $transition-speed;
@@ -143,7 +145,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     font-weight: 700;
-    font-size: 2.5em;
+    font-size: 2.3em;
     letter-spacing: 8px;
     text-align: center;
     white-space: nowrap;
@@ -217,7 +219,7 @@ body {
   }
 }
 
-// === ABOUT ===
+// ABOUT 
 .h1 {
   text-align: left;
   margin: 2rem $line-margin 0 $line-margin;
@@ -256,7 +258,7 @@ body {
   position: relative;
 }
 
-// === PROFILES ===
+//  PROFILES
 .profile-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -345,35 +347,49 @@ body {
   font-weight: 300;
 }
 
-// === NEWS ===
+//  NEWS 
 .news-row {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
   gap: 2rem;
-  margin: 2rem $line-margin 4rem $line-margin;
+  margin: 4rem $line-margin 4rem $line-margin; 
 }
 
 .news-image {
   flex: 1;
-  justify-content: flex-start;
+  justify-content: center;
 }
 
-.news-text, #news-content-h4, #news-content-p {
+.news-image img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;       
+}
+
+ .news-text {
   flex: 2;
+  display: flex;            
+  flex-direction: column;   
+  align-items: center;      
+  justify-content: center;  
   text-align: left;
-  letter-spacing: 0.06em;
   margin: 0;
-  padding-right: 15%;
+  margin-bottom: 10%;
 }
 
 #news-content-h4 {
-  font-size: 1.6rem;
-  font-weight: 500;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: $accent-color;
+  margin: 0;
 }
 
 #news-content-p {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 300;
 }
 
@@ -384,7 +400,7 @@ body {
   display: block;
 }
 
-// === INSTAGRAM ===
+//  INSTAGRAM 
 .news-insta {
   display: flex;
   flex-direction: column;
@@ -431,7 +447,7 @@ body {
   display: none;
 }
 
-// === PITCHES / PASSWORD ===
+// PITCHES / PASSWORD 
 .password-container {
   margin: 8.75rem auto;
   background: #fff;
@@ -501,7 +517,13 @@ body {
   width: 100%;
 }
 
-// === MODAL / CAROUSEL ===
+.pitch img
+{
+  min-width: auto;
+  min-height: auto;
+}
+
+//  POP-UP / CAROUSEL 
 .modal {
   display: none;
   position: fixed;
@@ -522,8 +544,7 @@ body {
 .carousel {
   background: #111;
   box-shadow: $modal-shadow;
-  border-radius: $border-radius;
-  padding: 2em 2em 1em 2em;
+  padding: 2em 2em 2em 2em;
   position: relative;
   min-width: 22rem;
   min-height: 20rem;
@@ -535,7 +556,6 @@ body {
     max-width: 70rem;
     margin-bottom: 1em;
     box-shadow: 0 0.125rem 0.75rem rgba(0,0,0,0.5);
-    border-radius: 0.5em;
   }
 }
 
@@ -585,7 +605,7 @@ body {
   margin-bottom: 0.5em;
 }
 
-// === FOOTER ===
+// FOOTER
 .footer-line {
   height: $line-thickness;
   background: $accent-color;
