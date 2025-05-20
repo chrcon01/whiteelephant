@@ -44,7 +44,8 @@
 <div class="media-mix">
 <img src="KASSEN thumbnail 3.jpg" alt="kassen - the box" class="static-image">
 <div class="text_overlay">KASSEN</div>
-<div class="text_overlay_small">ENG (THE BOX)<br>SHORT FILM - 19 MIN</div>
+<div class="text_overlay_small">ENG (THE BOX)
+  <br>SHORT FILM - 19 MIN</div>
 <img src="KASSEN.gif" alt="The box shortfilm gif"
 class="gif-image" tabindex="0" data-vimeo="https://player.vimeo.com/video/1071899444?h=aa8ac4676e">
 </div>
@@ -53,7 +54,8 @@ class="gif-image" tabindex="0" data-vimeo="https://player.vimeo.com/video/107189
 <div class="media-mix">
 <img src="HAV thumbnail 2.jpg" alt="hav - the sea" class="static-image">
 <div class="text_overlay">HAV</div>
-<div class="text_overlay_small">ENG (THE SEA)<br>SHORT FILM - 12 MIN</div>
+<div class="text_overlay_small">ENG (THE SEA)
+  <br>SHORT FILM - 12 MIN</div>
 <img src="HAV.gif" alt="The sea shortfilm gif"
 class="gif-image" tabindex="0" data-vimeo="https://player.vimeo.com/video/1071899444?h=aa8ac4676e">
 </div>
@@ -62,7 +64,41 @@ class="gif-image" tabindex="0" data-vimeo="https://player.vimeo.com/video/107189
 <div class="media-mix">
 <img src="TIME thumbnail 2.jpg" alt="time - time" class="static-image">
 <div class="text_overlay">TIME</div>
-<div class="text_overlay_small">ENG (TIME)<br>SHORT FILM - 8 MIN</div>
+<div class="text_overlay_small">ENG (TIME)
+  <br>SHORT FILM - 8 MIN</div>
+<img src="TIME.gif" alt="Time shortfilm gif"
+class="gif-image" tabindex="0" data-vimeo="https://player.vimeo.com/video/1071899444?h=aa8ac4676e">
+</div>
+</div>
+
+
+<h2 class="h2">MUSIC</h2>
+<div class="grid-row">
+<!-- 1. billede/gif/video -->
+<div class="media-mix">
+<img src="BACK OFF ME.jpg" alt="Back off you" class="static-image">
+<div class="text_overlay">BACK OFF YOU</div>
+<div class="text_overlay_small">MARTIN BALTSER</div>
+<img src="BACK_OFF_ME .gif" alt="music video"
+class="gif-image" tabindex="0" data-youtube="https://www.youtube.com/embed/DfmxREx7gfY">
+</div>
+
+<!-- 2. billede/gif/video -->
+<div class="media-mix">
+<img src="HAV thumbnail 2.jpg" alt="hav - the sea" class="static-image">
+<div class="text_overlay">HAV</div>
+<div class="text_overlay_small">ENG (THE SEA)
+  <br>SHORT FILM - 12 MIN</div>
+<img src="HAV.gif" alt="The sea shortfilm gif"
+class="gif-image" tabindex="0" data-vimeo="https://player.vimeo.com/video/1071899444?h=aa8ac4676e">
+</div>
+
+<!-- 3. billede/gif/video -->
+<div class="media-mix">
+<img src="TIME thumbnail 2.jpg" alt="time - time" class="static-image">
+<div class="text_overlay">TIME</div>
+<div class="text_overlay_small">ENG (TIME)
+  <br>SHORT FILM - 8 MIN</div>
 <img src="TIME.gif" alt="Time shortfilm gif"
 class="gif-image" tabindex="0" data-vimeo="https://player.vimeo.com/video/1071899444?h=aa8ac4676e">
 </div>
@@ -70,6 +106,21 @@ class="gif-image" tabindex="0" data-vimeo="https://player.vimeo.com/video/107189
 
 
 <!-- video -->
+ <div id="videopopup" class="popup">
+  <div class="popup-content">
+    <span class="close">&times;</span>
+<iframe
+  width="640"
+  height="360"
+  src="https://www.youtube.com/embed/DfmxREx7gfY"
+  frameborder="0"
+  allow="autoplay; fullscreen; picture-in-picture"
+  allowfullscreen
+  title="YouTube video">
+</iframe>
+  </div>
+</div>
+
 <div id="videopopup" class="popup">
   <div class="popup-content">
     <span class="close">&times;</span>
@@ -112,6 +163,64 @@ class="gif-image" tabindex="0" data-vimeo="https://player.vimeo.com/video/107189
 </footer>
 </div>
 
-<script src="script.js"></script>
+<script>
+document.querySelectorAll('.media-mix .gif-image').forEach(function(gif) {
+    gif.addEventListener('click', function(e) {
+      var vimeoUrl = gif.getAttribute('data-youtube'); 
+      var modal = document.getElementById('videopopup');
+      var iframe = modal.querySelector('iframe');
+      iframe.src = vimeoUrl;
+      modal.style.display = 'block';
+      e.stopPropagation();
+    });
+  });
+
+ // luk pop-up på kryds
+  document.querySelector('.popup .close').onclick = function() {
+    var modal = document.getElementById('videopopup');
+    var iframe = modal.querySelector('iframe');
+    modal.style.display = 'none';
+    iframe.src = "";
+  };
+  
+  // luk pop-up hvis der klikkes udenfor indholdet
+  window.onclick = function(event) {
+    var modal = document.getElementById('videopopup');
+    var iframe = modal.querySelector('iframe');
+    if (event.target == modal) {
+      modal.style.display = 'none';
+      iframe.src = "";
+    }
+  };
+
+document.querySelectorAll('.media-mix .gif-image').forEach(function(gif) {
+    gif.addEventListener('click', function(e) {
+      var vimeoUrl = gif.getAttribute('data-vimeo'); 
+      var modal = document.getElementById('videopopup');
+      var iframe = modal.querySelector('iframe');
+      iframe.src = vimeoUrl;
+      modal.style.display = 'block';
+      e.stopPropagation();
+    });
+  });
+
+ // luk pop-up på kryds
+  document.querySelector('.popup .close').onclick = function() {
+    var modal = document.getElementById('videopopup');
+    var iframe = modal.querySelector('iframe');
+    modal.style.display = 'none';
+    iframe.src = "";
+  };
+  
+  // luk pop-up hvis der klikkes udenfor indholdet
+  window.onclick = function(event) {
+    var modal = document.getElementById('videopopup');
+    var iframe = modal.querySelector('iframe');
+    if (event.target == modal) {
+      modal.style.display = 'none';
+      iframe.src = "";
+    }
+  };
+  </script>
 </body>
 </html>

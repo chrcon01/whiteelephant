@@ -135,6 +135,7 @@ body {
   font-size: 2.5em;
   letter-spacing: 8px;
   text-align: center;
+  white-space: nowrap;
 }
 
 .media-mix .text_overlay_small {
@@ -146,6 +147,7 @@ body {
   font-size: 1.1em;
   letter-spacing: 6px;
   text-align: center;
+  white-space: nowrap;
 }
 
 .media-mix .gif-image {
