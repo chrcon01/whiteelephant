@@ -73,7 +73,7 @@
    <div class="footer-social">
       <ul class="social-media-list">
     <li>
-      <a href="#">
+      <a href="https://www.instagram.com/whiteelephantpictures/">
         <img src="instagram.png" alt="Instagram">
       </a>
     </li>
@@ -111,8 +111,9 @@ const CORRECT_PASSWORD = "whiteelephantpictures";
       passwordInput.focus();
     }
   }
+  //Koden er delvist udarbejdet med inspiration fra https://www.w3schools.com/howto/howto_js_password_protect.asp. Vi ville løse problemet, bestående af at siden skulle kunne være adgangsbeskyttet og skjule indhold afhængigt af brugerens input. Efterfølgende er koden blevet tilpasset og videreudviklet.
 
-  //carousel
+  // carousel
 const galleries = [
   ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg", "8.jpg", "9.jpg", "10.jpg", "11.jpg", "13.jpg", "14.jpg", "15.jpg"],
 
@@ -131,6 +132,8 @@ const carouselCounter = document.getElementById('carouselCounter');
 
 let currentGallery = 0;
 let currentIndex = 0;
+// Koden er delvist udarbejdet med inspiration fra https://www.w3schools.com/howto/howto_js_slideshow_gallery.asp. Vi ønskede at løse opgaven med at opbygge et billedgalleri, hvor brugeren kan åbne billeder i en modal og bladre frem og tilbage mellem dem. Efterfølgende er koden blevet tilpasset og videreudviklet. 
+
 
 // Åbn karusellen med billeder
 galleryImages.forEach((img, idx) => {
@@ -159,6 +162,8 @@ nextBtn.addEventListener('click', function() {
   currentIndex = (currentIndex + 1) % images.length;
   showCarouselImage();
 });
+//Koden er delvist udarbejdet med inspiration fra https://www.w3schools.com/howto/howto_js_slideshow_gallery.asp og https://www.tutorialspoint.com/javascript-image-slider.htm. Vi ønskede at løse opgaven med at oprette en modal/pop-up, hvor brugeren kan bladre frem og tilbage mellem billederne. Efterfølgende er koden blevet tilpasset og videreudviklet. 
+
 
 // luk modal/pop-up
 closeModalBtn.addEventListener('click', function() {
@@ -172,6 +177,8 @@ modal.addEventListener('click', function(e) {
     carouselImg.src = '';
   }
 });
+//Koden er delvist udarbejdet med inspiration fra https://www.w3schools.com/howto/howto_js_lightbox.asp. Vi ønskede at gøre det nemt for brugeren at lukke modal-vinduet. Efterfølgende er koden blevet tilpasset og videreudviklet.
+// Vi har brugt AI som et hjælpemiddel til at finde kodeeksempler, men vi har hele tiden forholdt os kritisk til de forslag, vi har fået. Vi har vurderet, om AI’ens kode passede til vores behov, og har måttet justere og omskrive dele af koden for at sikre, at den både var brugervenlig, sikker og implementeret korrekt i vores projekt. Eksempelvis har vi ændret i strukturen og optimeret interaktionen, så løsningen opfylder vores krav og ønsker til design og funktionalitet. På den måde har AI været et supplement, men det endelige resultat er skabt gennem vores egen tilpasning og test af koden.
 </script>
 </body>
 </html>

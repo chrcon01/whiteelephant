@@ -201,7 +201,7 @@ body {
   background-size: cover;
   background-position: center;
   position: relative;
-  margin: 1rem 2.5rem 0 2.5rem;
+  margin: 1rem 0 0 0;
   padding-top: 2rem;
   padding-bottom: 5rem;
 }
@@ -720,6 +720,7 @@ body {
   }
   .h2,
   .h2-about {
+    margin-top: 2rem;
     font-size: 1.2rem;
     margin: 1rem 0.75rem 0.25rem 0.75rem;
   }
@@ -737,7 +738,8 @@ body {
     padding-right: 0;
   }
   #news-content-h4 {
-    font-size: 1.1rem;
+    margin-top: 2rem;
+    font-size: 1.2rem;
   }
   #news-content-p {
     font-size: 1rem;
@@ -793,10 +795,13 @@ body {
     font-size: 1rem;
   }
   .media-mix .text_overlay {
-    font-size: 0.7em;
+    font-size: 1em;
   }
   .media-mix .text_overlay_small {
-    font-size: 0.5em;
+    font-size: 0.7em;
+  }
+  .text-container {
+    margin: 1rem 0 0 0;
   }
 }
 
