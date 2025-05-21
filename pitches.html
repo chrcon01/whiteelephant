@@ -132,7 +132,7 @@ const carouselCounter = document.getElementById('carouselCounter');
 let currentGallery = 0;
 let currentIndex = 0;
 
-// Åbn karusellen med det rigtige billedsæt
+// Åbn karusellen med billeder
 galleryImages.forEach((img, idx) => {
   img.addEventListener('click', function() {
     currentGallery = idx;
@@ -145,7 +145,7 @@ galleryImages.forEach((img, idx) => {
 function showCarouselImage() {
   const images = galleries[currentGallery];
   carouselImg.src = images[currentIndex];
-  carouselCounter.textContent = `Billede ${currentIndex + 1} af ${images.length}`;
+  carouselCounter.textContent = `Photo ${currentIndex + 1} of ${images.length}`;
 }
 
 prevBtn.addEventListener('click', function() {
@@ -160,6 +160,7 @@ nextBtn.addEventListener('click', function() {
   showCarouselImage();
 });
 
+// luk modal/pop-up
 closeModalBtn.addEventListener('click', function() {
   modal.classList.remove('active');
   carouselImg.src = '';
@@ -169,25 +170,6 @@ modal.addEventListener('click', function(e) {
   if (e.target === modal) {
     modal.classList.remove('active');
     carouselImg.src = '';
-  }
-});
-
-document.addEventListener('keydown', function(e) {
-  if (modal.classList.contains('active')) {
-    if (e.key === "Escape") {
-      modal.classList.remove('active');
-      carouselImg.src = '';
-    }
-    if (e.key === "ArrowLeft") {
-      const images = galleries[currentGallery];
-      currentIndex = (currentIndex - 1 + images.length) % images.length;
-      showCarouselImage();
-    }
-    if (e.key === "ArrowRight") {
-      const images = galleries[currentGallery];
-      currentIndex = (currentIndex + 1) % images.length;
-      showCarouselImage();
-    }
   }
 });
 </script>
