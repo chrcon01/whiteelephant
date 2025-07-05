@@ -11,14 +11,16 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="main-container">
 
+  <div class="main-container">
   <!-- navigation bar -->
   <header>
     <div class="navbar-container">
-      <div id="logo">
-        <img src="logo_2.png" alt="white elephant logo">
-      </div>
+     <div id="logo">
+      <a href="index.html">
+      <img src="logo_2.png" alt="white elephant logo">
+      </a>
+    </div>
       <nav class="navbar">
         <a href="index.html">HOME</a>
         <a href="about.html">ABOUT</a>
@@ -79,7 +81,7 @@ class="gif-image" tabindex="0" data-vimeo="https://player.vimeo.com/video/108613
 <img src="BACK OFF ME.jpg" alt="Back off you" class="static-image">
 <div class="text_overlay">BACK OFF YOU</div>
 <div class="text_overlay_small">MARTIN BALTSER</div>
-<img src="BACK_OFF_ME.gif" alt="music video"
+<img src="BACK_OFF_ME .gif" alt="music video"
 class="gif-image" tabindex="0" data-youtube="https://www.youtube.com/embed/DfmxREx7gfY?si=5FhxsEyCIsYAU0Ts">
 </div>
 
@@ -103,22 +105,7 @@ class="gif-image" tabindex="0" data-vimeo="https://player.vimeo.com/video/623554
 </div>
 
 <!-- video -->
- <div id="videopopup" class="popup">
-  <div class="popup-content">
-    <span class="close">&times;</span>
-<iframe
-  width="640"
-  height="360"
-  src="https://www.youtube.com/embed/DfmxREx7gfY?si=5FhxsEyCIsYAU0Ts"
-  frameborder="0"
-  allow="autoplay; fullscreen; picture-in-picture"
-  allowfullscreen
-  title="YouTube video">
-</iframe>
-  </div>
-</div>
-
-<div id="videopopup" class="popup">
+<div id="videopopup-vimeo" class="popup">
   <div class="popup-content">
     <span class="close">&times;</span>
     <iframe
@@ -128,6 +115,20 @@ class="gif-image" tabindex="0" data-vimeo="https://player.vimeo.com/video/623554
       allow="autoplay; fullscreen; picture-in-picture"
       allowfullscreen
       title="Vimeo video">
+    </iframe>
+  </div>
+</div>
+
+<div id="videopopup-youtube" class="popup">
+  <div class="popup-content">
+    <span class="close">&times;</span>
+    <iframe
+      src=""
+      width="640" height="360"
+      frameborder="0"
+      allow="autoplay; fullscreen; picture-in-picture"
+      allowfullscreen
+      title="YouTube video">
     </iframe>
   </div>
 </div>
@@ -157,39 +158,53 @@ class="gif-image" tabindex="0" data-vimeo="https://player.vimeo.com/video/623554
       </a>
     </li>
   </ul>
+  </div>
 </footer>
 </div>
 
 <script>
 document.querySelectorAll('.media-mix .gif-image').forEach(function(gif) {
   gif.addEventListener('click', function(e) {
-    var videoUrl = gif.getAttribute('data-youtube') || gif.getAttribute('data-vimeo');
-    if (!videoUrl) return;
-    var modal = document.getElementById('videopopup');
-    var iframe = modal.querySelector('iframe');
-    iframe.src = videoUrl;
+    var vimeoUrl = gif.getAttribute('data-vimeo');
+    var youtubeUrl = gif.getAttribute('data-youtube');
+    var modal, iframe;
+
+    if (vimeoUrl) {
+      modal = document.getElementById('videopopup-vimeo');
+      iframe = modal.querySelector('iframe');
+      iframe.src = vimeoUrl;
+    } else if (youtubeUrl) {
+      modal = document.getElementById('videopopup-youtube');
+      iframe = modal.querySelector('iframe');
+      iframe.src = youtubeUrl;
+    } else {
+      return;
+    }
+
     modal.style.display = 'block';
     e.stopPropagation();
   });
 });
 
-document.querySelector('.popup .close').onclick = function() {
-  var modal = document.getElementById('videopopup');
+// Close functionality for both modals
+['videopopup-vimeo', 'videopopup-youtube'].forEach(function(modalId) {
+  var modal = document.getElementById(modalId);
+  if (!modal) return;
+  var closeBtn = modal.querySelector('.close');
   var iframe = modal.querySelector('iframe');
-  modal.style.display = 'none';
-  iframe.src = "";
-};
 
-window.onclick = function(event) {
-  var modal = document.getElementById('videopopup');
-  var iframe = modal.querySelector('iframe');
-  if (event.target == modal) {
+  closeBtn.onclick = function() {
     modal.style.display = 'none';
     iframe.src = "";
-  }
-};
-// Koden er delvist udarbejdet med inspiration fra https://www.w3schools.com/howto/howto_css_modals.asp. Vi ønskede at gøre det nemt for brugeren at åbne videoer i en modal-popup ved klik på et billede, samt at sikre enkel lukning af videoafspilleren. Efterfølgende er koden blevet tilpasset og videreudviklet. 
-// Vi har brugt AI som et hjælpemiddel til at finde kodeeksempler, men vi har hele tiden forholdt os kritisk til de forslag, vi har fået. Vi har vurderet, om AI’ens kode passede til vores behov, og har måttet justere og omskrive dele af koden for at sikre, at den både var brugervenlig, sikker og implementeret korrekt i vores projekt. Eksempelvis har vi selv tilføjet funktionalitet, så modal pop-up’en kan håndtere både YouTube- og Vimeo-links. På den måde har AI været et supplement, men det endelige resultat er skabt gennem vores egen tilpasning og test af koden.
+  };
+
+  window.addEventListener('click', function(event) {
+    if (event.target == modal) {
+      modal.style.display = 'none';
+      iframe.src = "";
+    }
+  });
+});
   </script>
 </body>
 </html>

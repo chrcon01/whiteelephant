@@ -20,14 +20,12 @@ body {
 .main-container {
   max-width: $max-content-width;
   margin: 0 auto;
-  padding-left: $line-margin;
-  padding-right: $line-margin;
 }
 
 // NAVIGATION
 .navbar-container {
   max-width: $max-content-width;
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
   display: flex;
   align-items: center;
@@ -71,7 +69,7 @@ body {
   height: $line-thickness;
   background: $accent-color;
   border: none;
-  margin: 0 $line-margin 0 $line-margin;
+  margin: 0;
 }
 
 //  HERO 
@@ -249,6 +247,16 @@ column-gap: 0;
   position: relative;
 }
 
+#h2-family {
+  text-align: left;
+  margin: 2rem 0 0.5 0;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: $accent-color;
+  position: relative;
+}
+
 .p {
   text-align: left;
   margin: 0 $line-margin;
@@ -262,7 +270,7 @@ column-gap: 0;
 .profile-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  margin: 0 $line-margin;
+  margin: 0;
 }
 
 .profile {
@@ -282,13 +290,19 @@ column-gap: 0;
   .profile-overlay {
     position: absolute;
     inset: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    padding: 1.2rem;   
+    box-sizing: border-box;
     opacity: 0;
     pointer-events: none;
+    z-index: 2;
     transition: opacity $transition-speed;
+    overflow-y: auto; 
   }
 
   &:hover .profile-overlay,
@@ -313,38 +327,35 @@ column-gap: 0;
   pointer-events: none;
 }
 
+.overlay-text-h3,
+.overlay-text-p,
+.overlay-text-p1 {
+  position: relative;
+  width: 100%;
+  margin-bottom: 0.5rem;
+  word-break: break-word;
+  z-index: 3;
+}
+
 .overlay-text-h3 {
-  position: absolute;
-  top: 20%;
-  left: 1rem;
-  z-index: 2;
   color: $text-color;
   font-weight: 500;
   font-size: 1.4rem;
   letter-spacing: 0.08em;
-  margin: 0 1rem;
-}
-
-.overlay-text-p,
-.overlay-text-p1 {
-  position: absolute;
-  left: 1rem;
-  right: 1rem;
-  z-index: 2;
-  font-size: 1.1rem;
-  letter-spacing: 0.06em;
-  margin: 0 1rem;
 }
 
 .overlay-text-p {
-  top: calc(20% + 1.4em);
   color: $accent-color;
+  font-size: 1.1rem;
   font-weight: 500;
+  letter-spacing: 0.06em;
 }
+
 .overlay-text-p1 {
-  top: calc(20% + 2.5em + 2rem);
   color: $text-color;
+  font-size: 1.1rem;
   font-weight: 300;
+  letter-spacing: 0.06em;
 }
 
 //  NEWS 
@@ -675,7 +686,6 @@ height: auto;
 }
 
 
-
 //  RESPONSIVE DESIGN 
 
 // Tablet/ipad (max-width: 1024px)
@@ -712,6 +722,23 @@ height: auto;
     grid-template-columns: repeat(2, 1fr);
     gap: 0;
   }
+
+  .overlay-text-h3 {
+  top: 10%;
+  font-size: 1.2rem;
+}
+
+.overlay-text-p,
+.overlay-text-p1 {
+  font-size: 1rem;
+}
+
+.overlay-text-p {
+  top: calc(10% + 1.2em);
+}
+.overlay-text-p1 {
+  top: calc(10% + 2.2em + 2rem);
+}
 
   .news-row {
     flex-direction: column;
@@ -787,6 +814,8 @@ height: auto;
       letter-spacing: 2px;
     }
   }
+
+  // ABOUT
   .h1 {
     font-size: 2rem;
     margin: 1rem 0.75rem 0 0.75rem;
@@ -801,6 +830,18 @@ height: auto;
     font-size: 1rem;
     margin: 0 0.75rem;
   }
+
+   .profile-overlay {
+    padding: 0.7rem;
+  }
+  .overlay-text-h3,
+  .overlay-text-p,
+  .overlay-text-p1 {
+    font-size: 0.9rem;
+  }
+
+
+  // NEWS
   .news-row {
     flex-direction: column;
     margin: 1rem 0.75rem 2rem 0.75rem;
@@ -820,6 +861,8 @@ height: auto;
   .column-photo {
     max-width: 100%;
   }
+
+  // PITCHES
   .password-container {
     margin: 3rem auto;
     padding: 1.2rem 0.75rem;
@@ -866,7 +909,7 @@ height: auto;
       height: 1.5rem;
     }
   }
-}
+ }
 
 // Små mobiler (max-width: 400px)
 @media (max-width: 400px) {
@@ -882,5 +925,12 @@ height: auto;
   .text-container {
   margin: 1rem 0 0 0;
 }
+  .profile-overlay {
+    padding: 0.35rem;
+  }
+  .overlay-text-h3,
+  .overlay-text-p,
+  .overlay-text-p1 {
+    font-size: 0.72rem;
+  }
 }
-
